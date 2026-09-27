@@ -11,6 +11,7 @@ class IdentificacaoSchema(SchemaBase):
 
 
 class CpuEstaticaSchema(SchemaBase):
+    modelo: str | None = Field(default=None, min_length=1)
     nucleos_fisicos: int | None = Field(default=None, gt=0)
     nucleos_logicos: int = Field(gt=0)
 
@@ -39,6 +40,7 @@ class MemoriaSchema(SchemaBase):
 
 class DiscoEstaticoSchema(SchemaBase):
     nome: str = Field(min_length=1)
+    tipo: str | None = Field(default=None, min_length=1)
     capacidade_total_gb: float = Field(gt=0)
 
 
